@@ -13,10 +13,15 @@ def load_gitignore_patterns(root_path):
 
 def generate_tree(root_path, prefix=" ", ignore_dot=True, ignore=True, gitignore_spec=None):
     tree = ""
-    items = sorted(os.listdir(root_path))
+    items = os.listdir(root_path)
+    
+    directories = sorted([name for name in items if os.path.isdir(os.path.join(root_path, name))])
+    files = sorted([name for name in items if os.path.isfile(os.path.join(root_path, name))])
+    
+    items = directories + files
 
     for index, name in enumerate(items):
-        if ignore_dot and name.startswith(".") and name not in ['.gitignore', '.dockerignore']:
+        if ignore_dot and name.startswith(".") and name not in ['.gitignore', '.dockerignore', '.env']:
             continue
         
         path = os.path.join(root_path, name)
