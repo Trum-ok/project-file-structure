@@ -4,7 +4,6 @@ from pathspec import PathSpec
 
 
 def load_gitignore_patterns(root_path):
-    """Считывает и загружает шаблоны из .gitignore."""
     gitignore_path = os.path.join(root_path, ".gitignore")
     with open(gitignore_path, "r") as f:
         lines = f.readlines()
@@ -14,7 +13,7 @@ def load_gitignore_patterns(root_path):
 
 def generate_tree(root_path, prefix=" ", ignore_dot=True, ignore=True, gitignore_spec=None):
     tree = ""
-    items = sorted(os.listdir(root_path))  # Сортируем элементы для упорядоченного вывода
+    items = sorted(os.listdir(root_path))
 
     for index, name in enumerate(items):
         if ignore_dot and name.startswith(".") and name not in ['.gitignore', '.dockerignore']:
