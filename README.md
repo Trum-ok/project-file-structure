@@ -6,7 +6,7 @@ prft is a Python library designed to easily generate and display the file struct
 -	Generates a clear and visual representation of your project’s file structure.
 -	Supports .gitignore and other ignore files, so you only see files relevant to the project.
 -	Allows hiding hidden files (dotfiles) for a cleaner output.
-- 
+-   Easy to use for ChatGPT.
 
 ## Installation
 Install prft via pip:
