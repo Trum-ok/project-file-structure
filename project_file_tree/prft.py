@@ -36,7 +36,6 @@ def dirs_match(name: str, dir_patterns: list[str]) -> bool:
 def match_ignore(root_path, patterns, name: str) -> bool:
     if os.path.isdir(os.path.join(root_path, name)):
         res = dirs_match(name, patterns['dirs'])
-        print(name, res)
         return res
     else:
         return any(name.endswith(pattern) for pattern in patterns["files"])
