@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "prft"
-version = "1.1.0"
+version = "1.1.1"
 description = "A tool to generate a file tree structure of a project with .gitignore support"
 dependencies = [
     "pathspec"
