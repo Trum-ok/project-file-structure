@@ -31,6 +31,7 @@ prft .
 ### Options
 - **--no-ignore**: Show all files, including those listed in .gitignore.
 - **--no-dot**: Include hidden files (dotfiles) in the output.
+- **--prefix** "some prefix": Use your own prefix (" " by default)
 
 **Example:**
 ```bash
