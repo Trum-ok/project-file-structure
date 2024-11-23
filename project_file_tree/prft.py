@@ -1,5 +1,10 @@
 import os
+import re
 import argparse
+
+
+def natural_sort_key(name):
+    return [int(text) if text.isdigit() else text for text in re.split(r'(\d+)', name)]
 
 
 def load_gitignore_patterns(root_path) -> dict[str, list]:
@@ -44,9 +49,9 @@ def match_ignore(root_path, patterns, name: str) -> bool:
 def generate_tree(root_path, prefix=" ", ignore_dot=True, ignore=True, gitignore_spec=None) -> str:
     tree = ""
     items = os.listdir(root_path)
-    
-    directories = sorted([name for name in items if os.path.isdir(os.path.join(root_path, name))])
-    files = sorted([name for name in items if os.path.isfile(os.path.join(root_path, name))])
+
+    directories = sorted([name for name in items if os.path.isdir(os.path.join(root_path, name))], key=natural_sort_key)
+    files = sorted([name for name in items if os.path.isfile(os.path.join(root_path, name))], key=natural_sort_key)
     
     items: list[str] = directories + files
 
